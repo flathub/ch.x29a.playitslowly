@@ -1,0 +1,37 @@
+From e8b3a409a61d6f907b37e673a1f901f336299dc5 Mon Sep 17 00:00:00 2001
+From: Mathieu Bridon <mathieu@hashbang.fr>
+Date: Wed, 8 Jan 2020 14:40:06 +0100
+Subject: [PATCH 7/8] appdata: Add a reference to the old app id
+
+Software centers like GNOME Software allow users to write app reviews.
+
+PlayItSlowly had such reviews associated with its old app id:
+
+https://odrs.gnome.org/1.0/reviews/api/app/playitslowly.desktop
+
+Unfortunately, they are invisible with the new app id.
+
+This commit will let software centers know they should "merge" the
+reviews, so that the ones linked to the old app id are visible with the
+new app id.
+---
+ share/appdata/ch.x29a.playitslowly.appdata.xml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/share/appdata/ch.x29a.playitslowly.appdata.xml b/share/appdata/ch.x29a.playitslowly.appdata.xml
+index 7d777c0..abb11e7 100644
+--- a/share/appdata/ch.x29a.playitslowly.appdata.xml
++++ b/share/appdata/ch.x29a.playitslowly.appdata.xml
+@@ -2,6 +2,9 @@
+ <application>
+   <id type="desktop">ch.x29a.playitslowly</id>
+   <launchable type="desktop-id">ch.x29a.playitslowly.desktop</launchable>
++  <provides>
++    <id>playitslowly.desktop</id>
++  </provides>
+   <name>Play it Slowly</name>
+   <summary>Play music at a different speed</summary>
+   <description>
+-- 
+2.24.1
+
