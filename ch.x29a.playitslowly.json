@@ -1,7 +1,7 @@
 {
     "id": "ch.x29a.playitslowly",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.30",
+    "runtime-version": "3.34",
     "sdk": "org.gnome.Sdk",
     "command": "playitslowly",
     "finish-args": [
@@ -24,7 +24,8 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.com/soundtouch/soundtouch.git",
-                    "commit": "7f594f8b7d10bbc16a4a31de8ec5a279af9c7378"
+                    "tag": "2.1.2",
+                    "commit": "9205fc971ed23cff407a67242bb9036a51113af4"
                 }
             ],
             "cleanup": [
@@ -37,20 +38,6 @@
         },
         {
             "name": "gstreamer-plugins-bad",
-            "build-options" : {
-                "arch" : {
-                    "i386" : {
-                        "config-opts" : [
-                            "--build=i586-unknown-linux-gnu"
-                        ]
-                    },
-                    "arm" : {
-                        "config-opts" : [
-                            "--build=arm-unknown-linux-gnueabi"
-                        ]
-                    }
-                }
-            },
             "config-opts": [
                 "--disable-bz2",
                 "--disable-curl",
@@ -82,8 +69,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.4.tar.xz",
-                    "sha256": "910b4e0e2e897e8b6d06767af1779d70057c309f67292f485ff988d087aa0de5"
+                    "url": "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.1.tar.xz",
+                    "sha256": "56481c95339b8985af13bac19b18bc8da7118c2a7d9440ed70e7dcd799c2adb5"
                 }
             ],
             "cleanup": [
