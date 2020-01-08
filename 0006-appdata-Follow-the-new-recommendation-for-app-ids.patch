@@ -1,0 +1,30 @@
+From 6cd346d0547f790c03cf916ac67b713db3c971c7 Mon Sep 17 00:00:00 2001
+From: Mathieu Bridon <mathieu@hashbang.fr>
+Date: Wed, 8 Jan 2020 14:29:08 +0100
+Subject: [PATCH 6/8] appdata: Follow the new recommendation for app ids
+
+It used to be that app ids were expected to contain the ".desktop" file
+extension.
+
+These days, we prefer not including it in the id, but adding the
+"launchable" tag to link the app to its desktop launcher.
+---
+ share/appdata/ch.x29a.playitslowly.appdata.xml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/share/appdata/ch.x29a.playitslowly.appdata.xml b/share/appdata/ch.x29a.playitslowly.appdata.xml
+index 3728f14..7d777c0 100644
+--- a/share/appdata/ch.x29a.playitslowly.appdata.xml
++++ b/share/appdata/ch.x29a.playitslowly.appdata.xml
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <application>
+-  <id type="desktop">ch.x29a.playitslowly.desktop</id>
++  <id type="desktop">ch.x29a.playitslowly</id>
++  <launchable type="desktop-id">ch.x29a.playitslowly.desktop</launchable>
+   <name>Play it Slowly</name>
+   <summary>Play music at a different speed</summary>
+   <description>
+-- 
+2.24.1
+
