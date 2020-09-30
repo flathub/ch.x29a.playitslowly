@@ -52,6 +52,25 @@
             ]
         },
         {
+            "name": "gst-plugins-base",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.18.0.tar.xz",
+                    "sha256": "762abdd1a950809a1cea62fff7f86b5f7d6bd5f6841e3e585c700b823cdb7897"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/*.la",
+                "/lib/gstreamer-1.0/*.la",
+                "/lib/gstreamer-1.0/include",
+                "/lib/pkgconfig",
+                "/share/gtk-doc"
+            ]
+        },
+        {
             "name": "gstreamer-plugins-bad",
             "buildsystem": "meson",
             "sources": [
