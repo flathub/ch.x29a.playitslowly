@@ -33,6 +33,25 @@
             ]
         },
         {
+            "name": "gstreamer",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.0.tar.xz",
+                    "sha256": "0ff09245b06c0aeb5d9a156edcab088a7e8213a0bf9c84a1ff0318f9c00c7805"
+                }
+            ],
+            "cleanup": [
+                "/include",
+                "/lib/*.la",
+                "/lib/gstreamer-1.0/*.la",
+                "/lib/gstreamer-1.0/include",
+                "/lib/pkgconfig",
+                "/share/gtk-doc"
+            ]
+        },
+        {
             "name": "gstreamer-plugins-bad",
             "buildsystem": "meson",
             "sources": [
