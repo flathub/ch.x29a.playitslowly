@@ -1,7 +1,7 @@
 {
     "id": "ch.x29a.playitslowly",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.36",
+    "runtime-version": "3.38",
     "sdk": "org.gnome.Sdk",
     "command": "playitslowly",
     "finish-args": [
@@ -33,39 +33,35 @@
         },
         {
             "name": "gstreamer-plugins-bad",
+            "buildsystem": "meson",
             "config-opts": [
-                "--disable-bz2",
-                "--disable-curl",
-                "--disable-dash",
-                "--disable-decklink",
-                "--disable-dtls",
-                "--disable-dvb",
-                "--disable-examples",
-                "--disable-fbdev",
-                "--disable-gl",
-                "--disable-gtk3",
-                "--disable-gtk-doc",
-                "--disable-hls",
-                "--disable-introspection",
-                "--disable-kms",
-                "--disable-openal",
-                "--disable-rsvg",
-                "--disable-shm",
-                "--disable-smoothstreaming",
-                "--disable-sndfile",
-                "--disable-vcd",
-                "--disable-vdpau",
-                "--disable-vulkan",
-                "--disable-wayland",
-                "--disable-webp",
-                "--enable-orc",
-                "--with-plugins=soundtouch"
+                "-Dbz2=disabled",
+                "-Dcurl=disabled",
+                "-Ddash=disabled",
+                "-Ddecklink=disabled",
+                "-Ddtls=disabled",
+                "-Ddvb=disabled",
+                "-Dexamples=disabled",
+                "-Dfbdev=disabled",
+                "-Dgl=disabled",
+                "-Dhls=disabled",
+                "-Dintrospection=disabled",
+                "-Dkms=disabled",
+                "-Dopenal=disabled",
+                "-Drsvg=disabled",
+                "-Dsmoothstreaming=disabled",
+                "-Dsndfile=disabled",
+                "-Dvulkan=disabled",
+                "-Dwayland=disabled",
+                "-Dwebp=disabled",
+                "-Dorc=disabled",
+                "-Dsoundtouch=enabled"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.1.tar.xz",
-                    "sha256": "56481c95339b8985af13bac19b18bc8da7118c2a7d9440ed70e7dcd799c2adb5"
+                    "url": "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.2.tar.xz",
+                    "sha256": "f1cb7aa2389569a5343661aae473f0a940a90b872001824bc47fa8072a041e74"
                 }
             ],
             "cleanup": [
