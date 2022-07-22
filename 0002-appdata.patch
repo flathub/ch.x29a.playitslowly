@@ -1,21 +1,39 @@
-From 359cded252acd12f576f2245910293a63aa5f210 Mon Sep 17 00:00:00 2001
+From 5dbeb8a9344b4fe572c184fb1d0bede1ae85c557 Mon Sep 17 00:00:00 2001
 From: Mathieu Bridon <mathieu@hashbang.fr>
-Date: Wed, 8 Jan 2020 15:29:58 +0100
-Subject: [PATCH 8/8] appdata: Add release descriptions
+Date: Wed, 8 Jan 2020 14:26:15 +0100
+Subject: [PATCH] Improvements to appdata
 
-This allows software centers like GNOME Software or KDE Discover to
-display what's new when users update the app.
-
-In addition, it also lets them display the version to the users.
+- Add OARS info
+- Follow the new recommendation for app ids
+- Add a reference to the old app id
+- Add release descriptions
 ---
- .../appdata/ch.x29a.playitslowly.appdata.xml  | 26 +++++++++++++++++++
- 1 file changed, 26 insertions(+)
+ .../appdata/ch.x29a.playitslowly.appdata.xml  | 33 ++++++++++++++++++-
+ 1 file changed, 32 insertions(+), 1 deletion(-)
 
 diff --git a/share/appdata/ch.x29a.playitslowly.appdata.xml b/share/appdata/ch.x29a.playitslowly.appdata.xml
-index abb11e7..28ec42b 100644
+index 0b754f0..28ec42b 100644
 --- a/share/appdata/ch.x29a.playitslowly.appdata.xml
 +++ b/share/appdata/ch.x29a.playitslowly.appdata.xml
-@@ -19,4 +19,30 @@
+@@ -1,6 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <application>
+-  <id type="desktop">ch.x29a.playitslowly.desktop</id>
++  <id type="desktop">ch.x29a.playitslowly</id>
++  <launchable type="desktop-id">ch.x29a.playitslowly.desktop</launchable>
++  <provides>
++    <id>playitslowly.desktop</id>
++  </provides>
+   <name>Play it Slowly</name>
+   <summary>Play music at a different speed</summary>
+   <description>
+@@ -9,9 +13,36 @@
+     </p>
+   </description>
+   <url type="homepage">https://29a.ch/playitslowly/</url>
++  <content_rating type="oars-1.1" />
+   <screenshots>
+     <screenshot type="default">https://29a.ch/playitslowly/screenshot.png</screenshot>
    </screenshots>
    <project_license>GPL-3.0+</project_license>
    <metadata_license>CC0-1.0</metadata_license>
@@ -47,5 +65,5 @@ index abb11e7..28ec42b 100644
 +  </releases>
  </application>
 -- 
-2.24.1
+2.37.1
 

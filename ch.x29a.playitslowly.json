@@ -85,38 +85,13 @@
                     "url": "https://29a.ch/playitslowly/playitslowly-1.5.1.tar.gz",
                     "sha256": "7dfe3da5417971183a13002d1e4ba4f30770baaf1ae3f9ef0ac66a6727f476aa"
                 },
-                /* Those are merged upstream */
                 {
                     "type": "patch",
-                    "path": "0001-Install-the-icons-in-the-right-folders.patch"
+                    "path": "0001-force-Gtk3.patch"
                 },
                 {
                     "type": "patch",
-                    "path": "0002-Move-the-128x128-icon.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0003-Add-an-appdata-file.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0004-Rename-the-desktop-appdata-and-icon-files.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0005-appdata-Add-OARS-info.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0006-appdata-Follow-the-new-recommendation-for-app-ids.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0007-appdata-Add-a-reference-to-the-old-app-id.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0008-appdata-Add-release-descriptions.patch"
+                    "path": "0002-appdata.patch"
                 }
             ]
         }
