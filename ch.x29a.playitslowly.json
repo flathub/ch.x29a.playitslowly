@@ -39,7 +39,7 @@
                 "--buildtype=release",
 
                 "-Dbase=enabled",
-                "-Dgood=disabled",
+                "-Dgood=enabled",
                 "-Dbad=enabled",
                 "-Dugly=disabled",
                 "-Dlibav=disabled",
