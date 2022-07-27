@@ -1,14 +1,16 @@
 {
     "id": "ch.x29a.playitslowly",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "3.38",
+    "runtime-version": "42",
     "sdk": "org.gnome.Sdk",
     "command": "playitslowly",
     "finish-args": [
         "--share=ipc",
         "--socket=pulseaudio",
         "--socket=x11",
-        "--filesystem=home:ro"
+        "--filesystem=home:ro",
+        "--filesystem=xdg-music",
+        "--env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0"
     ],
     "modules": [
         {
@@ -19,8 +21,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.2/soundtouch-2.1.2.tar.gz",
-                    "sha256": "2826049e2f34efbc4c8a47d00c93649822b0c14e1f29f5569835704814590732"
+                    "url": "https://codeberg.org/soundtouch/soundtouch/archive/2.3.1.tar.gz",
+                    "sha256": "42633774f372d8cb0a33333a0ea3b30f357c548626526ac9f6ce018c94042692"
                 }
             ],
             "cleanup": [
@@ -32,36 +34,59 @@
             ]
         },
         {
-            "name": "gstreamer-plugins-bad",
+            "name": "gstreamer",
             "buildsystem": "meson",
             "config-opts": [
-                "-Dbz2=disabled",
-                "-Dcurl=disabled",
-                "-Ddash=disabled",
-                "-Ddecklink=disabled",
-                "-Ddtls=disabled",
-                "-Ddvb=disabled",
+                "--buildtype=release",
+
+                "-Dbase=enabled",
+                "-Dgood=enabled",
+                "-Dbad=enabled",
+                "-Dugly=disabled",
+                "-Dlibav=disabled",
+                "-Dvaapi=disabled",
+                "-Dsharp=disabled",
+                "-Drs=disabled",
+                "-Dpython=disabled",
+                "-Ddevtools=disabled",
+                "-Dges=disabled",
+                "-Drtsp_server=disabled",
+                "-Dgst-examples=disabled",
+                "-Dqt5=disabled",
+                "-Dtests=disabled",
                 "-Dexamples=disabled",
-                "-Dfbdev=disabled",
-                "-Dgl=disabled",
-                "-Dhls=disabled",
                 "-Dintrospection=disabled",
-                "-Dkms=disabled",
-                "-Dopenal=disabled",
-                "-Drsvg=disabled",
-                "-Dsmoothstreaming=disabled",
-                "-Dsndfile=disabled",
-                "-Dvulkan=disabled",
-                "-Dwayland=disabled",
-                "-Dwebp=disabled",
-                "-Dorc=disabled",
-                "-Dsoundtouch=enabled"
+                "-Ddoc=disabled",
+                "-Dgtk_doc=disabled",
+
+                "-Dgst-plugins-bad:bz2=disabled",
+                "-Dgst-plugins-bad:curl=disabled",
+                "-Dgst-plugins-bad:dash=disabled",
+                "-Dgst-plugins-bad:decklink=disabled",
+                "-Dgst-plugins-bad:dtls=disabled",
+                "-Dgst-plugins-bad:dvb=disabled",
+                "-Dgst-plugins-bad:examples=disabled",
+                "-Dgst-plugins-bad:fbdev=disabled",
+                "-Dgst-plugins-bad:gl=disabled",
+                "-Dgst-plugins-bad:hls=disabled",
+                "-Dgst-plugins-bad:introspection=disabled",
+                "-Dgst-plugins-bad:kms=disabled",
+                "-Dgst-plugins-bad:openal=disabled",
+                "-Dgst-plugins-bad:rsvg=disabled",
+                "-Dgst-plugins-bad:smoothstreaming=disabled",
+                "-Dgst-plugins-bad:sndfile=disabled",
+                "-Dgst-plugins-bad:vulkan=disabled",
+                "-Dgst-plugins-bad:wayland=disabled",
+                "-Dgst-plugins-bad:webp=disabled",
+                "-Dgst-plugins-bad:orc=disabled",
+                "-Dgst-plugins-bad:soundtouch=enabled"
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.2.tar.xz",
-                    "sha256": "f1cb7aa2389569a5343661aae473f0a940a90b872001824bc47fa8072a041e74"
+                    "type": "git",
+                    "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
+                    "tag": "1.20.3",
+                    "disable-submodules": true
                 }
             ],
             "cleanup": [
@@ -81,42 +106,17 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://29a.ch/playitslowly/playitslowly-1.5.1.tar.gz",
-                    "sha256": "7dfe3da5417971183a13002d1e4ba4f30770baaf1ae3f9ef0ac66a6727f476aa"
-                },
-                /* Those are merged upstream */
-                {
-                    "type": "patch",
-                    "path": "0001-Install-the-icons-in-the-right-folders.patch"
+                    "type": "git",
+                    "url": "https://github.com/jwagner/playitslowly.git",
+                    "commit": "7ae6afc06df6df22a7b033c458ad579484edd033"
                 },
                 {
                     "type": "patch",
-                    "path": "0002-Move-the-128x128-icon.patch"
+                    "path": "0001-force-Gtk3.patch"
                 },
                 {
                     "type": "patch",
-                    "path": "0003-Add-an-appdata-file.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0004-Rename-the-desktop-appdata-and-icon-files.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0005-appdata-Add-OARS-info.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0006-appdata-Follow-the-new-recommendation-for-app-ids.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0007-appdata-Add-a-reference-to-the-old-app-id.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "0008-appdata-Add-release-descriptions.patch"
+                    "path": "0002-appdata.patch"
                 }
             ]
         }
