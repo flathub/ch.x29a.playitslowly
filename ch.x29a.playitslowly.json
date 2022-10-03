@@ -1,13 +1,14 @@
 {
     "id": "ch.x29a.playitslowly",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "42",
+    "runtime-version": "43",
     "sdk": "org.gnome.Sdk",
     "command": "playitslowly",
     "finish-args": [
         "--share=ipc",
         "--socket=pulseaudio",
-        "--socket=x11",
+        "--socket=fallback-x11",
+        "--socket=wayland",
         "--filesystem=home:ro",
         "--filesystem=xdg-music",
         "--env=GST_PLUGIN_SYSTEM_PATH=/app/lib/gstreamer-1.0"
