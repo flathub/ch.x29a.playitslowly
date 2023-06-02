@@ -1,7 +1,7 @@
 {
     "id": "ch.x29a.playitslowly",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "43",
+    "runtime-version": "45",
     "sdk": "org.gnome.Sdk",
     "command": "playitslowly",
     "finish-args": [
