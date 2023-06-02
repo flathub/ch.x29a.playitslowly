@@ -86,17 +86,20 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.freedesktop.org/gstreamer/gstreamer.git",
-                    "tag": "1.20.3",
+                    "tag": "1.22.6",
+                    "commit": "ddb4fbe43149b157efb52b6472313f48308c1dbc",
                     "disable-submodules": true
                 }
             ],
             "cleanup": [
                 "/include",
-                "/lib/*.la",
-                "/lib/gstreamer-1.0/*.la",
+                "*.la",
+                "*.a",
                 "/lib/gstreamer-1.0/include",
                 "/lib/pkgconfig",
-                "/share/gtk-doc"
+                "/share/aclocal",
+                "/share/gtk-doc",
+                "/share/man"
             ]
         },
         {
