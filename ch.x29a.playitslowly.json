@@ -27,6 +27,7 @@
                 }
             ],
             "cleanup": [
+                "*.la",
                 "/bin",
                 "/include",
                 "/lib/pkgconfig",
